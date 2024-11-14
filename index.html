@@ -235,7 +235,22 @@
         window.onload = loadRandomVideo;
     </script>
 
+        // ランダムにURLを取得
+        function getRandomVideoUrl() {
+            const randomIndex = Math.floor(Math.random() * videoUrls.length);
+            return videoUrls[randomIndex];
+        }
 
+        // ページを初期化
+        function initPage() {
+            const videoUrl = getRandomVideoUrl();
+            const videoPlayer = document.getElementById('videoPlayer');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            // 動画ソースとダウンロードリンクを設定
+            videoPlayer.src = videoUrl;
+            downloadBtn.href = videoUrl;
+        }
 
 
 
