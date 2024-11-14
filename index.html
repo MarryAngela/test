@@ -71,6 +71,13 @@
             width: 100%;
             height: auto;
             max-width: 720px;
+            display: none; /* 初始隐藏 */
+        }
+        /* 加载动画 */
+        .loading {
+            font-size: 1em;
+            color: #333;
+            margin-top: 20px;
         }
         /* 标签样式 */
         .label, .label-download {
@@ -132,6 +139,7 @@
     <div class="video-container">
         <div class="label">サムネイル:</div>
         <video id="videoPlayer" controls></video>
+        <div id="loading" class="loading">動画を読み込み中...</div> <!-- 加载动画 -->
     </div>
 
     <script>
@@ -149,8 +157,16 @@
                 // 设置视频播放器和下载按钮的链接
                 const videoPlayer = document.getElementById('videoPlayer');
                 const downloadBtn = document.getElementById('downloadBtn');
+                const loadingText = document.getElementById('loading');
+
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
+
+                // 显示加载动画
+                videoPlayer.addEventListener('loadeddata', () => {
+                    loadingText.style.display = 'none'; // 隐藏加载动画
+                    videoPlayer.style.display = 'block'; // 显示视频
+                });
             } catch (error) {
                 console.error('動画の読み込みに失敗しました:', error);
             }
