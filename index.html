@@ -25,20 +25,20 @@
             padding: 20px;
             margin: 0;
         }
-        /* 顶部标题样式 */
+        /* 上部タイトルのスタイル */
         h1 {
             margin: 0;
             font-size: 2em;
             color: #333;
         }
-        /* 分割线样式 */
+        /* 分割線のスタイル */
         .divider {
             width: 100%;
             height: 2px;
             background-color: #000;
             margin: 10px 0;
         }
-        /* 广告位和下载按钮样式 */
+        /* 広告エリアとダウンロードボタンのスタイル */
         .ad, .download-btn {
             margin: 10px auto;
             padding: 10px;
@@ -59,7 +59,7 @@
         .ad:hover, .download-btn:hover {
             background-color: #e0e0e0;
         }
-        /* 广告容器 */
+        /* 広告コンテナ */
         .ad-container {
             position: relative;
             width: 100%;
@@ -67,7 +67,7 @@
             margin: 10px auto;
             overflow: hidden;
         }
-        /* 幻灯片样式 */
+        /* スライドショーのスタイル */
         .ad-slide {
             display: none;
             width: 100%;
@@ -84,12 +84,12 @@
         video {
             width: 100%;
             height: auto;
-            max-width: 100%; /* 修正视频最大宽度 */
-            display: block; /* 确保视频始终显示 */
+            max-width: 100%; /* 動画の最大幅を修正 */
+            display: block; /* 動画が常に表示されるようにする */
             margin: 0 auto;
-            background-color: #f0f0f0; /* 添加背景色，防止空白显示 */
+            background-color: #f0f0f0; /* 背景色を追加して、空白が表示されないようにする */
         }
-        /* 标签样式 */
+        /* タグのスタイル */
         .label, .label-download {
             font-size: 1em;
             color: #333;
@@ -100,20 +100,20 @@
         .label-download {
             margin-bottom: 5px;
         }
-        /* 响应式样式 */
+        /* レスポンシブスタイル */
         @media (max-width: 768px) {
             .ad, .download-btn {
                 font-size: 0.9em;
             }
             video {
-                max-width: 100%; /* 保证视频宽度适应手机屏幕 */
+                max-width: 100%; /* 動画の幅がスマートフォンの画面に適応するようにする */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部标题 -->
+    <!-- 上部タイトル -->
     <h1>GigaFile便</h1>
     <div class="divider"></div>
 
@@ -190,7 +190,7 @@
         -->
 
 
-    <!-- 下载按钮和标签 -->
+    <!-- ダウンロードボタンとタグ -->
     <div class="video-container">
         <div class="label-download">動画:</div>
         <a href="https://gigafile.cc/index.html" target="_blank" class="promo-btn">GigaFile便削除ファイル保管庫</a>
@@ -199,42 +199,38 @@
         <a id="downloadBtn" class="download-btn" download target="_blank">ダウンロード</a>
     </div>
 
-    <!-- 视频展示和标签 -->
+    <!-- 動画の表示とタグ -->
     <div class="video-container">
         <div class="label">サムネイル:</div>
         <video id="videoPlayer" controls></video>
     </div>
 
     <script>
-        // 加载视频列表并随机选择视频
         async function loadRandomVideo() {
             try {
-                const response = await fetch('videos.json'); // 请求 JSON 文件
-                const data = await response.json(); // 解析 JSON 数据
+                const response = await fetch('videos.json'); 
+                const data = await response.json(); 
                 const videoUrls = data.videos;
 
-                // 随机选择一个视频 URL
                 const randomIndex = Math.floor(Math.random() * videoUrls.length);
                 const videoUrl = videoUrls[randomIndex];
 
-                // 设置视频播放器和下载按钮的链接
                 const videoPlayer = document.getElementById('videoPlayer');
                 const downloadBtn = document.getElementById('downloadBtn');
 
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
 
-                // 视频加载完成后显示视频
                 videoPlayer.addEventListener('loadeddata', () => {
-                    videoPlayer.style.backgroundColor = 'transparent'; // 去除背景色
-                    videoPlayer.style.display = 'block'; // 显示视频
+                    videoPlayer.style.backgroundColor = 'transparent'; 
+                    videoPlayer.style.display = 'block'; 
                 });
             } catch (error) {
                 console.error('動画の読み込みに失敗しました:', error);
             }
         }
 
-        // 幻灯片轮播逻辑
+        // スライドショーのロジック
         let slideIndex = 0;
         const slides = document.querySelectorAll('.ad-slide');
 
@@ -251,9 +247,9 @@
             slides[slideIndex - 1].classList.add('active');
         }
 
-        setInterval(showSlides, 3000); // 每3秒切换广告
+        setInterval(showSlides, 3000); // 3秒ごとに広告を切り替える
 
-        // 页面加载完成后调用函数
+        // ページが完全に読み込まれた後に関数を呼び出す
         window.onload = loadRandomVideo;
     </script>
 
@@ -269,14 +265,16 @@
       spot.mount(document.body)
     </script>
 
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SKSDEWQ57"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SKSDEWQ57"></script>
 
-  gtag('config', 'G-7SKSDEWQ57');
-</script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'G-7SKSDEWQ57');
+    </script>
+	
 </body>
 </html>
