@@ -67,18 +67,34 @@
             width: 100%;
             max-width: 720px;
         }
+        /* 固定尺寸的播放器框 */
+        .video-frame {
+            width: 720px; /* 固定宽度 */
+            height: 405px; /* 固定高度 (16:9 的比例) */
+            background-color: #000;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
         video {
             width: 100%;
-            height: auto;
-            max-width: 100%; /* 修正视频最大宽度 */
+            height: 100%;
+            object-fit: cover; /* 保持视频比例并填充框 */
             display: block; /* 确保视频始终显示 */
-            margin: 0 auto;
         }
-        /* 加载动画 */
-        .loading {
-            font-size: 1em;
-            color: #333;
-            margin-top: 20px;
+        /* 播放按钮样式 */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
         }
         /* 标签样式 */
         .label, .label-download {
@@ -96,8 +112,13 @@
             .ad, .download-btn {
                 font-size: 0.9em;
             }
+            .video-frame {
+                width: 100%;
+                height: auto;
+            }
             video {
                 max-width: 100%; /* 保证视频宽度适应手机屏幕 */
+                height: auto;
             }
         }
     </style>
@@ -139,8 +160,11 @@
     <!-- 视频展示和标签 -->
     <div class="video-container">
         <div class="label">サムネイル:</div>
-        <video id="videoPlayer" controls></video>
-        <div id="loading" class="loading">動画を読み込み中...</div> <!-- 加载动画 -->
+        <div class="video-frame" id="videoFrame">
+            <!-- 播放按钮 -->
+            <button id="playButton" class="play-button">再生</button>
+            <video id="videoPlayer" controls></video>
+        </div>
     </div>
 
     <script>
@@ -158,39 +182,20 @@
                 // 设置视频播放器和下载按钮的链接
                 const videoPlayer = document.getElementById('videoPlayer');
                 const downloadBtn = document.getElementById('downloadBtn');
-                const loadingText = document.getElementById('loading');
+                const playButton = document.getElementById('playButton');
 
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
 
-                // 显示加载动画
-                videoPlayer.addEventListener('loadeddata', () => {
-                    loadingText.style.display = 'none'; // 隐藏加载动画
-                    videoPlayer.style.display = 'block'; // 显示视频
+                // 播放按钮点击事件
+                playButton.addEventListener('click', () => {
+                    videoPlayer.play();
+                    playButton.style.display = 'none'; // 播放后隐藏播放按钮
                 });
             } catch (error) {
                 console.error('動画の読み込みに失敗しました:', error);
             }
         }
-
-        // 幻灯片轮播逻辑
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.ad-slide');
-
-        function showSlides() {
-            slides.forEach((slide, index) => {
-                slide.style.display = 'none';
-                slide.classList.remove('active');
-            });
-
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
-
-            slides[slideIndex - 1].style.display = 'block';
-            slides[slideIndex - 1].classList.add('active');
-        }
-
-        setInterval(showSlides, 3000); // 每3秒切换广告
 
         // 页面加载完成后调用函数
         window.onload = loadRandomVideo;
