@@ -70,8 +70,9 @@
         video {
             width: 100%;
             height: auto;
-            max-width: 720px;
-            display: none; /* 初始隐藏 */
+            max-width: 100%; /* 修正视频最大宽度 */
+            display: block; /* 确保视频始终显示 */
+            margin: 0 auto;
         }
         /* 加载动画 */
         .loading {
@@ -90,10 +91,13 @@
         .label-download {
             margin-bottom: 5px;
         }
-        /* 隐藏视频元素（仅在移动设备） */
+        /* 响应式样式 */
         @media (max-width: 768px) {
-            video, .label {
-                display: none;
+            .ad, .download-btn {
+                font-size: 0.9em;
+            }
+            video {
+                max-width: 100%; /* 保证视频宽度适应手机屏幕 */
             }
         }
     </style>
@@ -106,14 +110,19 @@
 
     <!-- 幻灯片广告位 -->
     <div class="ad-container">
+        <!-- 幻灯片1 - 图片广告和链接 -->
         <div class="ad-slide active">
             <a href="https://www.example.com" target="_blank">
                 <img src="https://via.placeholder.com/728x90.png" alt="広告画像1" style="max-width:100%; height:auto;">
             </a>
         </div>
+
+        <!-- 幻灯片2 - 文本广告和链接 -->
         <div class="ad-slide">
             <a href="https://www.example.com" target="_blank">こちらをクリックして私たちのウェブサイトにアクセスしてください</a>
         </div>
+
+        <!-- 幻灯片3 - 图片广告和链接 -->
         <div class="ad-slide">
             <a href="https://www.example.com" target="_blank">
                 <img src="https://via.placeholder.com/300x250.png" alt="広告画像2" style="max-width:100%; height:auto;">
