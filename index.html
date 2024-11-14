@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダム動画ダウンロードページ</title>
+    <style>
+        /* 样式省略，保持原样 */
+    </style>
+</head>
+<body>
+
+    <!-- 页面结构省略，保持原样 -->
+
+    <!-- ダウンロードボタンとラベル -->
+    <div class="video-container">
+        <div class="label-download">動画:</div>
+        <a id="downloadBtn" class="download-btn" download target="_blank">ダウンロード</a>
+    </div>
+
+    <!-- 動画表示とラベル -->
+    <div class="video-container">
+        <div class="label">サムネイル:</div>
+        <video id="videoPlayer" controls></video>
+    </div>
+
+    <script>
+        // 从 videos.json 文件中加载视频列表并随机选择
+        async function loadRandomVideo() {
+            try {
+                const response = await fetch('videos.json'); // 获取JSON文件
+                const data = await response.json(); // 解析JSON数据
+                const videoUrls = data.videos;
+
+                // 随机选择一个视频URL
+                const randomIndex = Math.floor(Math.random() * videoUrls.length);
+                const videoUrl = videoUrls[randomIndex];
+
+                // 设置视频播放器和下载按钮的链接
+                const videoPlayer = document.getElementById('videoPlayer');
+                const downloadBtn = document.getElementById('downloadBtn');
+                videoPlayer.src = videoUrl;
+                downloadBtn.href = videoUrl;
+            } catch (error) {
+                console.error('動画の読み込みに失敗しました:', error);
+            }
+        }
+
+        // 页面加载完成后调用 loadRandomVideo 函数
+        window.onload = loadRandomVideo;
+    </script>
+
+</body>
+</html>
