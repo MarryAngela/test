@@ -73,6 +73,7 @@
             max-width: 100%; /* 修正视频最大宽度 */
             display: block; /* 确保视频始终显示 */
             margin: 0 auto;
+            background-color: #f0f0f0; /* 添加背景色，防止空白显示 */
         }
         /* 标签样式 */
         .label, .label-download {
@@ -155,8 +156,9 @@
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
 
-                // 显示视频
+                // 视频加载完成后显示视频
                 videoPlayer.addEventListener('loadeddata', () => {
+                    videoPlayer.style.backgroundColor = 'transparent'; // 去除背景色
                     videoPlayer.style.display = 'block'; // 显示视频
                 });
             } catch (error) {
