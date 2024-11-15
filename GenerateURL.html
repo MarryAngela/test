@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta property="og:description" content="無料大容量 ファイル転送サービス GigaFile（ギガファイル）便！「３日～１００日」選べる７種類のファイルの保持期限に加え、１ファイル300Gまでアップロード、共有可能！もちろん容量無制限でアンチウイルス装備。会員登録も不要です。" />
+    <meta property="og:image" content="https://gigafile.cc/images/og_new_200_60.png" />
+    <meta property="og:image:width" content="250" />
+    <meta property="og:image:height" content="250" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta property="og:url" content="https://gigafile.cc/" />
+    <meta property="og:title" content="GigaFile便削除ファイル保管庫" />
+    <link rel="canonical" href="https://gigafile.cc/" />
+    <meta name="keywords" content="大容量ファイル,ファイル送信,無料ファイル転送,オンラインストレージ,ファイル送受信,大容量データ転送,容量無制限,アンチウイルス" />
+    <meta name="description" content="無料大容量 ファイル転送サービス GigaFile（ギガファイル）便！「３日～１００日」選べる７種類のファイルの保持期限に加え、１ファイル300Gまでアップロード、共有可能！もちろん容量無制限でアンチウイルス装備。会員登録も不要です。" />
+
+    <title>GigaFile便削除ファイル保管庫</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .ad-container {
+            margin: 10px auto;
+            max-width: 720px;
+            overflow: hidden;
+        }
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 5px 0; /* タイトルの間隔を調整 */
+        }
+        #urlDisplay {
+            margin: 20px;
+            padding: 10px;
+            font-size: 1.2em;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            min-width: 250px;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            width: 100%; /* ボタンコンテナの幅 */
+            justify-content: center;
+        }
+        button {
+            padding: 15px 0;
+            font-size: 1em;
+            cursor: pointer;
+            width: 45%; /* さまざまなデバイスに対応するためのパーセンテージ幅を使用 */
+            max-width: 200px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GigaFile便</h1>
+    <h1>削除ファイル保管庫</h1>
+
+    <div id="urlDisplay">「ランダム取得」をクリックして、ランダムなファイルのURLを取得してください。</div>
+
+    <div class="button-container">
+        <button onclick="generateURL()">ランダム取得</button>
+        <button onclick="copyURL()">URLをコピー</button>
+    </div>
+
+    <script>
+        
+        const urls = Array.from({ length: 200 }, (_, i) => `${i + 1}.gigafile.cc`).filter(url => url !== '188.gigafile.cc');
+
+        function generateRandomParam() {
+            const prefix = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            const randomHash = Array.from(crypto.getRandomValues(new Uint8Array(16)))
+                .map(b => b.toString(16).padStart(2, '0')).join('');
+            return `/?${prefix}-${randomHash}`;
+        }
+
+        function generateURL() {
+            const randomURL = urls[Math.floor(Math.random() * urls.length)];
+            const randomParam = generateRandomParam();
+            document.getElementById('urlDisplay').innerText = `${randomURL}${randomParam}`;
+        }
+
+        function copyURL() {
+            const urlText = document.getElementById('urlDisplay').innerText;
+            navigator.clipboard.writeText(urlText);
+        }
+    </script>
+        <br>
+	<br>
+	<br>
+<div class="shareaholic-canvas" data-app="share_buttons" data-app-id="33225111"></div>
+    <!-- 广告容器 -->
+    <div class="ad-container">
+       <div data-type="_mgwidget" data-widget-id="1699029">
+</div>
+<script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");
+</script>
+        <div id="ads-container"></div>
+    </div>
+    <!-- 引入广告脚本 -->
+    <script>
+        // 动态加载广告脚本到特定容器中
+        (function() {
+            const script = document.createElement("script");
+            script.src = "https://jsc.adskeeper.com/site/996832.js";
+            script.async = true;
+            document.getElementById("ads-container").appendChild(script);
+        })();
+    </script>
+     <!-- BEGIN SHAREAHOLIC CODE -->
+     <link rel="preload" href="https://cdn.shareaholic.net/assets/pub/shareaholic.js" as="script" />
+     <meta name="shareaholic:site_id" content="3a7ef8a7663d79696cf11faaf4dc2d93" />
+     <script data-cfasync="false" async src="https://cdn.shareaholic.net/assets/pub/shareaholic.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SKSDEWQ57"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'G-7SKSDEWQ57');
+    </script>
+</body>
+</html>
