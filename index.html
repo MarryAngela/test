@@ -11,20 +11,17 @@
             padding: 20px;
             margin: 0;
         }
-        /* 顶部标题样式 */
         h1 {
             margin: 0;
             font-size: 2em;
             color: #333;
         }
-        /* 分割线样式 */
         .divider {
             width: 100%;
             height: 2px;
             background-color: #000;
             margin: 10px 0;
         }
-        /* 广告位和下载按钮样式 */
         .ad, .download-btn {
             margin: 10px auto;
             padding: 10px;
@@ -45,7 +42,6 @@
         .ad:hover, .download-btn:hover {
             background-color: #e0e0e0;
         }
-        /* 广告容器 */
         .ad-container {
             position: relative;
             width: 100%;
@@ -53,7 +49,6 @@
             margin: 10px auto;
             overflow: hidden;
         }
-        /* 幻灯片样式 */
         .ad-slide {
             display: none;
             width: 100%;
@@ -74,7 +69,6 @@
             display: block;
             margin: 0 auto;
         }
-        /* 播放按钮样式 */
         .play-button {
             position: absolute;
             top: 50%;
@@ -82,7 +76,7 @@
             transform: translate(-50%, -50%);
             font-size: 4em;
             color: #fff;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: transparent;
             border-radius: 50%;
             width: 100px;
             height: 100px;
@@ -97,7 +91,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -111,7 +104,9 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-        /* 响应式样式 */
+        .label {
+            margin-bottom: 20px; /* 增加间距 */
+        }
         @media (max-width: 768px) {
             .ad, .download-btn {
                 font-size: 0.9em;
