@@ -106,9 +106,9 @@
             max-width: 720px;
         }
         video {
-            width: 100%;
+            width: 0%;
             height: auto;
-            max-width: 100%; /* 動画の最大幅を修正 */
+            max-width: 0%; /* 動画の最大幅を修正 */
             display: block; /* 動画が常に表示されるようにする */
             margin: 0 auto;
             background-color: #f0f0f0; /* 背景色を追加して、空白が表示されないようにする */
@@ -238,8 +238,8 @@
 
                 const randomIndex = Math.floor(Math.random() * videoUrls.length);
                 const videoUrl = videoUrls[randomIndex];
-<!--
-                const videoPlayer = document.getElementById('videoPlayer');-->
+
+                const videoPlayer = document.getElementById('videoPlayer');
                 const downloadBtn = document.getElementById('downloadBtn');
 
                 videoPlayer.src = videoUrl;
