@@ -238,16 +238,16 @@
 
                 const randomIndex = Math.floor(Math.random() * videoUrls.length);
                 const videoUrl = videoUrls[randomIndex];
-
-                const videoPlayer = document.getElementById('videoPlayer');
+<!--
+                const videoPlayer = document.getElementById('videoPlayer');-->
                 const downloadBtn = document.getElementById('downloadBtn');
 
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
-<!--
+
                 videoPlayer.addEventListener('loadeddata', () => {
                     videoPlayer.style.backgroundColor = 'transparent'; 
-                    videoPlayer.style.display = 'block'; -->
+                    videoPlayer.style.display = 'block'; 
                 });
             } catch (error) {
                 console.error('動画の読み込みに失敗しました:', error);
