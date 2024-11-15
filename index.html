@@ -70,11 +70,40 @@
         video {
             width: 100%;
             height: auto;
-            max-width: 100%; /* 修正视频最大宽度 */
-            display: none; /* 初始隐藏视频 */
+            max-width: 100%;
+            display: block;
             margin: 0 auto;
         }
-        /* 标签样式 */
+        /* 播放按钮样式 */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
         .label, .label-download {
             font-size: 1em;
             color: #333;
@@ -82,23 +111,19 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-        .label-download {
-            margin-bottom: 5px;
-        }
-        /* 占位图像样式 */
-        .thumbnail {
-            width: 100%;
-            max-width: 375px;
-            height: auto;
-            cursor: pointer;
-        }
         /* 响应式样式 */
         @media (max-width: 768px) {
             .ad, .download-btn {
                 font-size: 0.9em;
             }
-            video, .thumbnail {
-                max-width: 100%; /* 保证视频和占位图宽度适应手机屏幕 */
+            video {
+                max-width: 100%;
+            }
+            .play-button {
+                font-size: 3em;
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
             }
         }
     </style>
@@ -111,23 +136,13 @@
 
     <!-- 幻灯片广告位 -->
     <div class="ad-container">
-        <!-- 幻灯片1 - 图片广告和链接 -->
         <div class="ad-slide active">
             <a href="https://www.example.com" target="_blank">
                 <img src="https://via.placeholder.com/728x90.png" alt="広告画像1" style="max-width:100%; height:auto;">
             </a>
         </div>
-
-        <!-- 幻灯片2 - 文本广告和链接 -->
         <div class="ad-slide">
             <a href="https://www.example.com" target="_blank">こちらをクリックして私たちのウェブサイトにアクセスしてください</a>
-        </div>
-
-        <!-- 幻灯片3 - 图片广告和链接 -->
-        <div class="ad-slide">
-            <a href="https://www.example.com" target="_blank">
-                <img src="https://via.placeholder.com/300x250.png" alt="広告画像2" style="max-width:100%; height:auto;">
-            </a>
         </div>
     </div>
 
@@ -140,49 +155,41 @@
     <!-- 视频展示和标签 -->
     <div class="video-container">
         <div class="label">サムネイル:</div>
-        
-        <!-- 占位图片，带播放按钮 -->
-        <img id="thumbnail" class="thumbnail" src="https://via.placeholder.com/375x210.png?text=%E5%8B%95%E7%94%BB+%E5%9C%A8%E3%81%93%E3%81%AE%E3%82%92%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF" alt="動画を再生" />
-
-        <!-- 隐藏的视频播放器 -->
-        <video id="videoPlayer" controls></video>
+        <div class="video-overlay" onclick="startVideo()">
+            <div class="play-button">▶</div>
+        </div>
+        <video id="videoPlayer" controls style="display: none;"></video>
     </div>
 
     <script>
-        // 加载视频列表并随机选择视频
         async function loadRandomVideo() {
             try {
-                const response = await fetch('videos.json'); // 请求 JSON 文件
-                const data = await response.json(); // 解析 JSON 数据
+                const response = await fetch('videos.json');
+                const data = await response.json();
                 const videoUrls = data.videos;
 
-                // 随机选择一个视频 URL
                 const randomIndex = Math.floor(Math.random() * videoUrls.length);
                 const videoUrl = videoUrls[randomIndex];
 
-                // 设置视频播放器和下载按钮的链接
                 const videoPlayer = document.getElementById('videoPlayer');
                 const downloadBtn = document.getElementById('downloadBtn');
 
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
-
             } catch (error) {
                 console.error('動画の読み込みに失敗しました:', error);
             }
         }
 
-        // 当点击缩略图时，隐藏缩略图并播放视频
-        document.getElementById('thumbnail').addEventListener('click', function() {
-            const thumbnail = document.getElementById('thumbnail');
+        function startVideo() {
             const videoPlayer = document.getElementById('videoPlayer');
+            const overlay = document.querySelector('.video-overlay');
 
-            thumbnail.style.display = 'none'; // 隐藏缩略图
+            overlay.style.display = 'none'; // 隐藏播放按钮
             videoPlayer.style.display = 'block'; // 显示视频
-            videoPlayer.play(); // 自动播放视频
-        });
+            videoPlayer.play(); // 播放视频
+        }
 
-        // 幻灯片轮播逻辑
         let slideIndex = 0;
         const slides = document.querySelectorAll('.ad-slide');
 
@@ -199,9 +206,8 @@
             slides[slideIndex - 1].classList.add('active');
         }
 
-        setInterval(showSlides, 3000); // 每3秒切换广告
+        setInterval(showSlides, 3000);
 
-        // 页面加载完成后调用函数
         window.onload = loadRandomVideo;
     </script>
 
