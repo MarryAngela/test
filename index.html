@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ランダム動画ダウンロードページ</title>
+	<!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta property="og:description" content="無料大容量 ファイル転送サービス GigaFile（ギガファイル）便！「３日～１００日」選べる７種類のファイルの保持期限に加え、１ファイル300Gまでアップロード、共有可能！もちろん容量無制限でアンチウイルス装備。会員登録も不要です。" />
+    <meta property="og:image" content="https://gigafile.cc/images/og_new_200_60.png" />
+    <meta property="og:image:width" content="250" />
+    <meta property="og:image:height" content="250" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta property="og:url" content="https://gigafile.cc/" />
+    <meta property="og:title" content="GigaFile（ギガファイル）便" />
+    <link rel="canonical" href="https://gigafile.cc/" />
+    <meta name="keywords" content="大容量ファイル,ファイル送信,無料ファイル転送,オンラインストレージ,ファイル送受信,大容量データ転送,容量無制限,アンチウイルス" />
+    <meta name="description" content="無料大容量 ファイル転送サービス GigaFile（ギガファイル）便！「３日～１００日」選べる７種類のファイルの保持期限に加え、１ファイル300Gまでアップロード、共有可能！もちろん容量無制限でアンチウイルス装備。会員登録も不要です。" />
+	
+    <title>無料大容量 ファイル転送サービス GigaFile(ギガファイル)便</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,17 +25,20 @@
             padding: 20px;
             margin: 0;
         }
+        /* 上部タイトルのスタイル */
         h1 {
             margin: 0;
             font-size: 2em;
             color: #333;
         }
+        /* 分割線のスタイル */
         .divider {
             width: 100%;
             height: 2px;
             background-color: #000;
             margin: 10px 0;
         }
+        /* 広告エリアとダウンロードボタンのスタイル */
         .ad, .download-btn {
             margin: 10px auto;
             padding: 10px;
@@ -42,6 +59,7 @@
         .ad:hover, .download-btn:hover {
             background-color: #e0e0e0;
         }
+        /* 広告コンテナ */
         .ad-container {
             position: relative;
             width: 100%;
@@ -49,6 +67,7 @@
             margin: 10px auto;
             overflow: hidden;
         }
+        /* スライドショーのスタイル */
         .ad-slide {
             display: none;
             width: 100%;
@@ -65,38 +84,12 @@
         video {
             width: 100%;
             height: auto;
-            max-width: 100%;
-            display: block;
+            max-width: 100%; /* 動画の最大幅を修正 */
+            display: block; /* 動画が常に表示されるようにする */
             margin: 0 auto;
+            background-color: #f0f0f0; /* 背景色を追加して、空白が表示されないようにする */
         }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4em;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
-            cursor: pointer;
-            z-index: 2;
-        }
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2;
-        }
+        /* タグのスタイル */
         .label, .label-download {
             font-size: 1em;
             color: #333;
@@ -104,66 +97,119 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-        .label {
-            margin-bottom: 20px; /* 增加间距 */
+        .label-download {
+            margin-bottom: 5px;
         }
+        /* レスポンシブスタイル */
         @media (max-width: 768px) {
             .ad, .download-btn {
                 font-size: 0.9em;
             }
             video {
-                max-width: 100%;
-            }
-            .play-button {
-                font-size: 3em;
-                width: 80px;
-                height: 80px;
-                line-height: 80px;
+                max-width: 100%; /* 動画の幅がスマートフォンの画面に適応するようにする */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部标题 -->
+    <!-- 上部タイトル -->
     <h1>GigaFile便</h1>
     <div class="divider"></div>
 
-    <!-- 幻灯片广告位 -->
+    <!-- 幻灯片広告枠 -->
     <div class="ad-container">
+        <!-- スライド1 - 画像広告とハイパーリンク -->
+        <!--
         <div class="ad-slide active">
             <a href="https://www.example.com" target="_blank">
                 <img src="https://via.placeholder.com/728x90.png" alt="広告画像1" style="max-width:100%; height:auto;">
             </a>
         </div>
-        <div class="ad-slide">
-            <a href="https://www.example.com" target="_blank">こちらをクリックして私たちのウェブサイトにアクセスしてください</a>
+        -->
+
+        <!-- スライド2 - テキスト広告とハイパーリンク -->
+        <div class="ad-slide active">
+            <a href="https://t.me/addlist/23feBBRxXPwxZGFl" target="_blank">オカズ共有するtelegramグルをまとめたよ！！   
+毎日更新しています！</a>
         </div>
+        <div class="ad-slide active">
+            <a href="https://t.me/+Z2M2ELTlttk4YTk1" target="_blank">【🔞FC2PPV】無修正＆高画質💕動画保管庫🎥無料ダウンロードでき！ 
+毎日更新しています！</a>
+        </div>   
+        <div class="ad-slide active">
+            <a href="https://t.me/+zrwerYNpccVkY2Zl" target="_blank">🔞素人女性/カップル/流出/ヌード/ハメ撮り動画【極秘入手🈲】 
+毎日更新しています！</a>
+        </div>   
+        <div class="ad-slide active">
+            <a href="https://t.me/+Q2ilPaCmIwk4YWJl" target="_blank">🔞盗撮動画ーチャンネルナビ 
+毎日更新しています！</a>
+        </div>  
+        <div class="ad-slide active">
+            <a href="https://t.me/+FEE1ZNn62z0wYTZl" target="_blank">女子トイレ盗撮🚺/美人率が高い/剛毛マンコ/放尿/おしっこ🔞
+毎日更新しています！</a>
+        </div>
+        <div class="ad-slide active">
+            <a href="https://t.me/+8Gwb7yEkWhI0Zjdl" target="_blank">スカート逆さ撮りまとめ👗パンチラ/陰唇丸見え/ノーパン🔞
+毎日更新しています！</a>
+        </div>	    
+        <div class="ad-slide active">
+            <a href="https://t.me/+LGjWVIIKC9kwMzQ9" target="_blank">🔞着替え盗撮/ヌード/おっぱい/マン毛丸出し/更衣室/試着室/覗き放題 
+毎日更新しています！</a>
+        </div>
+        <div class="ad-slide active">
+            <a href="https://t.me/+ZWoXUHUyOQ8xMTk1" target="_blank">リアル痴漢動画🔞ぶっかけ💦股間押し付け🍑満員電車🚃主観視点 
+毎日更新しています！</a>
+        </div> 
+        <div class="ad-slide active">
+            <a href="https://okazulive.cc" target="_blank">このライブ配信サイトでは、ほとんどのエロいライブ配信を無料で視聴できます。投げ銭をすると、オナニーの見せ合い、オナニー鑑賞、オナ指示などのプレイが楽しめます。素人のエッチな姿を気軽に覗き見したいという方におすすめです 
+毎日更新しています！</a>
+        </div>  
+        <div class="ad-slide active">
+            <a href="https://bit.ly/3STyHJb" target="_blank">このレアな流出エロ動画をまとめたサイトでは、たった10円でレア動画を視聴・ダウンロードでき、さらに会員サービスに登録すると、全てのコンテンツが無料で見放題になります！ 
+毎日更新しています！</a>
+        </div>  
+
+	    
+        <!-- スライド3 - 画像広告とハイパーリンク -->
+        <!--
+        <div class="ad-slide">
+            <a href="https://www.example.com" target="_blank">
+                <img src="https://via.placeholder.com/300x250.png" alt="広告画像2" style="max-width:100%; height:auto;">
+            </a>
+        </div>
+        -->
     </div>
 
-    <!-- 下载按钮和标签 -->
+
+
+
+        <!-- スライド4 - 画像広告とハイパーリンク -->
+	<!--
+    <iframe width="100%" height="100%" style="display:block" marginWidth="0" marginHeight="0" frameBorder="no" src="https://creative.okazulive.cc/widgets/v4/Universal?autoplay=onHover&tag=girls&targetDomain=okazulive.cc&userId=29a6fbc0cc90562e74d565eebc872d2e0310a054583e591dfb25304ab8fa358c"></iframe>
+        -->
+
+
+    <!-- ダウンロードボタンとタグ -->
     <div class="video-container">
         <div class="label-download">動画:</div>
+        <a href="https://gigafile.cc/index.html" target="_blank" class="promo-btn">GigaFile便削除ファイル保管庫</a>
+	    <br>
+	    <br>
         <a id="downloadBtn" class="download-btn" download target="_blank">ダウンロード</a>
     </div>
 
-    <!-- 视频展示和标签 -->
+    <!-- 動画の表示とタグ -->
     <div class="video-container">
         <div class="label">サムネイル:</div>
-        <br>
-        <br>
-        <br>
-        <div class="video-overlay" onclick="startVideo()">
-            <div class="play-button">▶</div>
-        </div>
-        <video id="videoPlayer" controls style="display: none;"></video>
+       <!--  <video id="videoPlayer" controls></video>-->
     </div>
 
     <script>
         async function loadRandomVideo() {
             try {
-                const response = await fetch('videos.json');
-                const data = await response.json();
+                const response = await fetch('videos.json'); 
+                const data = await response.json(); 
                 const videoUrls = data.videos;
 
                 const randomIndex = Math.floor(Math.random() * videoUrls.length);
@@ -174,20 +220,17 @@
 
                 videoPlayer.src = videoUrl;
                 downloadBtn.href = videoUrl;
+
+                videoPlayer.addEventListener('loadeddata', () => {
+                    videoPlayer.style.backgroundColor = 'transparent'; 
+                    videoPlayer.style.display = 'block'; 
+                });
             } catch (error) {
                 console.error('動画の読み込みに失敗しました:', error);
             }
         }
 
-        function startVideo() {
-            const videoPlayer = document.getElementById('videoPlayer');
-            const overlay = document.querySelector('.video-overlay');
-
-            overlay.style.display = 'none'; // 隐藏播放按钮
-            videoPlayer.style.display = 'block'; // 显示视频
-            videoPlayer.play(); // 播放视频
-        }
-
+        // スライドショーのロジック
         let slideIndex = 0;
         const slides = document.querySelectorAll('.ad-slide');
 
@@ -204,10 +247,33 @@
             slides[slideIndex - 1].classList.add('active');
         }
 
-        setInterval(showSlides, 3000);
+        setInterval(showSlides, 3000); // 3秒ごとに広告を切り替える
 
+        // ページが完全に読み込まれた後に関数を呼び出す
         window.onload = loadRandomVideo;
     </script>
 
+    <!-- スライド5 - 画像広告とハイパーリンク -->
+
+     <script
+       id="SCSpotScript"
+       type="text/javascript"
+       src="https://creative.okazulive.cc/widgets/Spot/lib.js"
+       ></script>
+     <script type="text/javascript">
+     const spot = new StripchatSpot({"autoplay":"all","hideButton":1,"closeButtonDelay":0,"animate":1,"width":275,"height":90,"targetDomain":"okazulive.cc","userId":   "29a6fbc0cc90562e74d565eebc872d2e0310a054583e591dfb25304ab8fa358c"});
+      spot.mount(document.body)
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SKSDEWQ57"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'G-7SKSDEWQ57');
+    </script>
+	
 </body>
 </html>
