@@ -117,7 +117,23 @@
     </script>
         <br>
 <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="33225111"></div>
-
+<!-- 广告容器 -->
+    <div class="ad-container" id="ads-container">
+        <div data-type="_mgwidget" data-widget-id="1699029">
+</div>
+<script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");
+</script>
+    </div>
+<!-- 引入广告脚本 -->
+    <script>
+        // 动态加载广告脚本到特定容器中
+        (function() {
+            const script = document.createElement("script");
+            script.src = "https://jsc.adskeeper.com/site/996832.js";
+            script.async = true;
+            document.getElementById("ads-container").appendChild(script);
+        })();
+    </script>	
 
      <!-- BEGIN SHAREAHOLIC CODE -->
      <link rel="preload" href="https://cdn.shareaholic.net/assets/pub/shareaholic.js" as="script" />
